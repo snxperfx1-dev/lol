@@ -281,6 +281,54 @@ HyperOmega is a persistent awareness loop, not a one-shot pipeline.
   maintains cross-symbol awareness. The design must scale to N symbols without rework.
 - Perception **MUST NOT** be gated on "are we in a trade?" — it runs unconditionally.
 
+### L11 — Opportunity Set / Multi-Context Entry Law
+HyperOmega does **not** ask *"do I have a buy signal?"*. It asks *"given everything I know right now,
+**what opportunities exist**, at what scale, on what timeframe, with what objective and what risk?"*
+- The system maintains a **set of concurrent Opportunities** (often several at once on different
+  timeframes), each typed by **entry family**, each carrying its own conviction / risk / target /
+  invalidation / management style.
+- There is **no single signal and no single decision engine.** Different tools produce different
+  **entry families** (compression / rotation / network / continuation / exhaustion / flip-zone /
+  liquidation / expansion). The machine may be taking an M5 compression-release entry while an H1
+  is mid-compression and an H4 campaign continuation is also live.
+- HyperIntelligence **selects/sizes among opportunities** by asymmetry, portfolio exposure, current
+  drawdown and context weights — it does not collapse them to one boolean.
+- Context shapes the **trade type**: e.g. counter-trend ⇒ smaller size, scalp target, faster
+  management; mature expansion + high residual ⇒ partial / tighten / reduce. Same machine, many
+  tactics.
+- Reducing this to "Senseei says ATTACK" is a **prohibited** oversimplification.
+
+**Entry families (the arsenal of methodologies) — all must be available:**
+
+| Family | Built from (F60 + observers) |
+|---|---|
+| Compression release | compression persistence · FU chains · FCE |
+| Rotation | RIE · ownership transfer · MCE |
+| Network | Invisible Network · node pressure · attractors |
+| Continuation | chain vitality · campaign ownership · curve progression |
+| Exhaustion | residual energy (ERF) · convexity · maturity |
+| Flip-zone | FRZ · supply-demand geometry · approach quality |
+| Liquidation | attack sequence · wave registry (WR/DWR) · phase engine |
+| Expansion | compression release · FU chain progression · curve-tree inheritance |
+
+**Opportunity record (canonical shape):**
+```
+struct Opportunity {
+   EntryFamily family;        // which methodology produced it
+   ENUM_TIMEFRAMES timeframe; // where it lives
+   int    direction;          // +1 / -1
+   double conviction;         // 0..100 (context-weighted)
+   double riskPerUnit;        // stop distance / $ risk basis
+   double target;             // objective (from TE)
+   double invalidation;       // where it's wrong (from IE2)
+   ManagementStyle mgmt;      // aggressive / normal / scalp / runner / countertrend
+   double asymmetry;          // reward:risk * probability
+};
+```
+HyperIntelligence consumes the live `Opportunity[]` set and asks: which has the best asymmetry?
+which fits portfolio exposure? which fits current drawdown? which deserves capital — and at what
+size and management style?
+
 ---
 
 ## 4. Ownership Matrix — who owns what

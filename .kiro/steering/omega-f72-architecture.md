@@ -87,6 +87,17 @@ HyperOmega is a **living, multi-symbol, never-terminating awareness loop**:
   correlation and campaign budget. Start with one pair but design for N.
 - Every continuous question maps to an owning module (see spec Appendix B) — never drop a question.
 
+## Opportunity / multi-context entries (no single signal)
+Do NOT ask "do I have a buy signal?". Ask "what opportunities exist right now, at what scale, on
+what timeframe, with what objective and risk?". Maintain a **set of concurrent Opportunities**,
+each typed by **entry family** (compression / rotation / network / continuation / exhaustion /
+flip-zone / liquidation / expansion) with its own conviction/risk/target/invalidation/management
+style. Different timeframes can run different families simultaneously (e.g. M5 compression-release
+entry while H4 continuation is also live). HyperIntelligence **selects & sizes among opportunities**
+by asymmetry, portfolio exposure, drawdown and context weights — context sets the trade type
+(counter-trend ⇒ smaller/scalp/fast; mature+high residual ⇒ partial/tighten). Never collapse this
+to one boolean or "Senseei says ATTACK".
+
 ## Before claiming "done"
 Run the spec's §11 verification checklist: prove no deletion, no bypass, no recompute, enrichment
 applied, Senseei independent (system still decides without it), DOE canonical into Execution.
