@@ -57,6 +57,8 @@ input int    InpHistoryBars      = 600;     // Bars until historical
 input group "=== F60 · curve tree / compression ==="
 input int    InpBeliefSmooth     = 3;       // Belief / maturity EMA smoothing
 input int    InpResetBars        = 20;      // Min bars before wave reset
+input int    InpLiqSweepLookback = 10;      // Liquidity sweep lookback bars
+input bool   InpRequireLiqSweep  = true;    // Require liquidity sweep for true CHoCH
 
 input group "=== HyperIntelligence ==="
 input int    InpMinConviction    = 55;      // Min opportunity conviction to act
@@ -99,8 +101,8 @@ input bool   InpCsvLogs          = false;   // Write CSV logs
 #include "Include/F60/Network.mqh"            // Part 5
 #include "Include/F60/Participants.mqh"       // Part 6
 #include "Include/F60/FractalTime.mqh"        // Part 7
-//#include "Include/F60/Cognition.mqh"          // Part 8
-//#include "Include/F60/Substrate.mqh"          // Part 8 (aggregator -> F60State)
+#include "Include/F60/Cognition.mqh"          // Part 8
+#include "Include/F60/Substrate.mqh"          // Part 8 (aggregator -> F60State)
 //--- Observers (Parts 9-11)
 //#include "Include/Observers/Observers.mqh"
 //--- HyperIntelligence (Part 12)
