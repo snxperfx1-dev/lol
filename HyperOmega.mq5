@@ -104,7 +104,7 @@ input bool   InpCsvLogs          = false;   // Write CSV logs
 #include "Include/F60/Cognition.mqh"          // Part 8
 #include "Include/F60/Substrate.mqh"          // Part 8 (aggregator -> F60State)
 //--- Observers (Parts 9-11)
-//#include "Include/Observers/Observers.mqh"
+#include "Include/Observers/Observers.mqh"
 //--- HyperIntelligence (Part 12)
 //#include "Include/Hyper/HyperIntelligence.mqh"
 //--- Risk + Execution + Position Intelligence (Parts 13-14)
