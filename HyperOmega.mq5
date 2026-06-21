@@ -92,8 +92,8 @@ input bool   InpCsvLogs          = false;   // Write CSV logs
 #include "Include/Common.mqh"
 #include "Include/Logger.mqh"
 //--- F60 substrate (Parts 2-8)
-//#include "Include/F60/Physics.mqh"           // Part 2
-//#include "Include/F60/Structure.mqh"         // Part 2
+#include "Include/F60/Physics.mqh"
+#include "Include/F60/Structure.mqh"
 //#include "Include/F60/CurveFramework.mqh"     // Part 3
 //#include "Include/F60/CurveTree.mqh"          // Part 4
 //#include "Include/F60/Network.mqh"            // Part 5
