@@ -42,6 +42,53 @@ it is the most advanced sensory and physical substrate the rest of the intellige
 
 ---
 
+## 1.5 Evolutionary lineage — the system REMEMBERS its ancestry
+
+This architecture is **evolutionary, not revolutionary**. Each generation discovered things that
+are *still true*. Newer generations did not make older discoveries obsolete — they gave them
+**better inputs**.
+
+```
+Lytra  →  F72  →  Omega  →  F60  →  HyperOmega
+(origin   (obs-   (risk +   (deepest    (the evolved
+ lessons)  ervers)  shell)    physics &    synthesis of
+                              recursion)   ALL generations)
+```
+
+- **Lytra** — the original signal lessons (wave direction, HTF stack, energy/resolution framing).
+- **F72** — the observer cognition (ERF, RIE, MCE, NE, FRZ, TQE, TE, IE2, DOE, WR/DWR).
+- **Omega** — the risk framework + execution shell (Trinity, capital, drawdown, sizing, kill
+  switches, position/trade management).
+- **F60** — the deepest physical & recursive substrate we have built (advanced phases, curve
+  logic, recursive ownership/lineage, compression persistence, FU-candle chain logic, the
+  Invisible Network, fractal stack, chain vitality, Time Intelligence).
+- **HyperOmega** — the **target**: the evolved architecture whose intelligence is the
+  **accumulated memory of every generation**, standing on the superior physics & recursion of F60.
+
+> The build deliverable is named **OMEGA-F72**; the architecture it realizes is the **HyperOmega**
+> lineage. They are the same system viewed as artifact vs. architecture.
+
+### LAW L0 — ANCESTRY PRESERVATION LAW (foundational)
+
+> F60 is the most advanced physical and recursive substrate, and becomes the **authoritative
+> source** for: structure · phases · compression · recursive ownership · Invisible Network ·
+> FU-chain logic · campaign state · fractal stack · time intelligence.
+>
+> **However, ALL intelligence accumulated in Lytra, F72, and Omega remains valuable.** Residual
+> energy, unresolved/resolved pressure, supply–demand distance, rotation, MTF consensus, narrative,
+> qualification, targets, invalidations, wave registries, **and risk management** are **not obsolete
+> concepts** — they are observers. **Do not delete them. Upgrade them.** Replace proxy calculations
+> with authoritative F60 calculations wherever an F60 equivalent exists.
+>
+> The machine must think *"I remember every lesson I have ever learned"* — never *"I found
+> something newer, so forget everything before."* Amnesia is the failure mode this law exists to
+> prevent.
+
+**The objective is NOT an F60 algorithm. The objective is HyperOmega: accumulated generational
+memory standing on F60's physics.**
+
+---
+
 ## 2. The three strata
 
 ```
@@ -232,15 +279,22 @@ listed proxies. This is the heart of L4.
 - **Consume:** FCE residual energy, curve energy, recursive depth, compression persistence,
   chain vitality, curve maturity, ownership transfer.
 - **Abandon proxy:** old EMA/ATR/life-decay residual approximations.
+- **Old → New (same concept, better inputs):**
+  `residual = ATR_proxy + momentum_proxy`  →
+  `residual = FCE_residual + compression_persistence + chain_vitality + curve_maturity + FU_continuity`
 
 ### FRZ — future return zones / supply-demand
 - **Consume:** Invisible Network nodes, FCE, recursive ownership, curve lineage, compression regime.
 - **Abandon proxy:** standalone EMA/fib zone recomputation that ignores network + curve.
+- **Old → New:** `{supply_distance, demand_distance}` →
+  `{supply_distance, demand_distance} + Invisible_Network_nodes + curve_ownership + recursive_lineage + attractor_geometry`
 
 ### RIE — rotation / control transfer
 - **Consume:** curve ownership transfer, recursive depth, chain vitality, compression persistence,
   participant interference.
 - **Abandon proxy:** simple momentum/structure flip heuristics.
+- **Old → New:** `rotation_probability` →
+  `rotation_probability + ownership_transfer + participant_interference + chain_decay + compression_exhaustion`
 
 ### MCE — MTF consensus
 - **Consume:** fractal stack, curve map, network pressure, chain vitality, Time Intelligence.
@@ -292,6 +346,24 @@ Because intelligence is emergent (L6), the final synthesis layer is replaceable.
 - **EMERGENT INTELLIGENCE LAW:** no single module is "the AI". Intelligence emerges from the
   recursive interaction of all observers. Any synthesis layer (Senseei, DOE, HyperIntelligence)
   may be swapped; the substrate and observers remain.
+
+---
+
+## 7.5 Risk management is Omega's inheritance (NEVER delete)
+
+F60 was never a risk framework — **Omega was.** F60 was built to perceive; Omega was built to
+survive. The following are Omega's permanent inheritance and **MUST be preserved and kept in the
+decision-to-order path**:
+
+- **Trinity** (life / stability / confidence) — but now *fed from* authentic F60 + observer state.
+- **Capital management** + **drawdown controls** (daily / weekly / hard) + **kill switches**.
+- **Exposure limits** and **conviction-scaled sizing**.
+- **Trade management** (scaling, partial exits, reversal) and the **execution shell** (CTrade,
+  position management).
+
+These consume the **canonical decision** (DOE / HyperIntelligence) — they never read raw signals
+and never compete with the observers. Deleting or bypassing any risk control is **forbidden**: it
+is the same amnesia error as deleting an observer.
 
 ---
 

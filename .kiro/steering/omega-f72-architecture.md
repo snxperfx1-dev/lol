@@ -14,6 +14,20 @@ Preserve the entire Omega intelligence stack and **enrich every layer** by repla
 foundational substrate beneath it with authentic **F60** curve/lifecycle/physics. F60 = spine,
 V72 = cognition, Omega = shell. The product is their **synthesis**, never a winner between them.
 
+## Ancestry Preservation Law (the system remembers where it came from)
+Lineage: **Lytra → F72 → Omega → F60 → HyperOmega**. Evolutionary, NOT revolutionary. Each
+generation discovered things that are still true; newer generations gave them better inputs.
+- F60 is the **authoritative substrate** for structure, phases, compression, recursive ownership,
+  Invisible Network, FU-chain logic, campaign state, fractal stack, time intelligence.
+- But residual energy, resolved/unresolved pressure, supply–demand distance, rotation, MTF
+  consensus, narrative, qualification, targets, invalidations, wave registries **and all of
+  Omega's risk management are NOT obsolete** — they are observers. **Do not delete them. Upgrade
+  them** (swap proxy math for authentic F60 sources). Concept stays the same; inputs get richer.
+- Think *"I remember every lesson I have ever learned"* — never *"newer exists, forget the rest."*
+  Amnesia is the failure mode. **The target is HyperOmega, not an F60 algorithm.**
+- **Risk is Omega's inheritance** (Trinity, capital, drawdown, exposure, conviction sizing, kill
+  switches, trade management, execution). F60 was perception; Omega was survival. Never delete it.
+
 ## Hard prohibitions (these are FAILURES — never do them)
 - ❌ Do **NOT** produce a standalone "F60 core", "Senseei core", "simplified core algo",
   "equivalent implementation", or any stripped single-file rewrite.
