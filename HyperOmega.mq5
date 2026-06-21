@@ -109,8 +109,8 @@ input bool   InpCsvLogs          = false;   // Write CSV logs
 #include "Include/Hyper/HyperIntelligence.mqh"
 //--- Risk + Execution + Position Intelligence (Parts 13-14)
 #include "Include/Risk/Risk.mqh"
-//#include "Include/Exec/Execution.mqh"
-//#include "Include/Exec/PositionIntelligence.mqh"
+#include "Include/Exec/Execution.mqh"
+#include "Include/Exec/PositionIntelligence.mqh"
 //--- Portfolio (Part 15)
 //#include "Include/Portfolio.mqh"
 

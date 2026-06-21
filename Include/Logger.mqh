@@ -83,6 +83,11 @@ public:
    static void LogDebug(string m,string s){ Log(LOG_DEBUG,m,s); }
    static void LogInfo(string m,string s){ Log(LOG_INFO,m,s); }
    static void LogWarning(string m,string s){ Log(LOG_WARNING,m,s); }
+   //--- short aliases
+   static void Info(string m,string s){ Log(LOG_INFO,m,s); }
+   static void Warn(string m,string s){ Log(LOG_WARNING,m,s); }
+   static void Decide(string m,string s){ Log(LOG_DECISION,m,s); }
+   static void Exec(string m,string s){ Log(LOG_EXECUTION,m,s); }
    static void LogException(string module,int code,string msg)
      {
       Log(LOG_EXCEPTION,module,StringFormat("[%d] %s",code,msg));
