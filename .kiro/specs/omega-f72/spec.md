@@ -89,6 +89,48 @@ memory standing on F60's physics.**
 
 ---
 
+## 1.6 Operating model — a continuously self-aware campaign manager
+
+HyperOmega is **not an indicator and not a `signal → trade` EA.** It is a **living system**: a
+continuously self-aware, multi-symbol campaign manager. **The trade is a side effect of
+understanding what the market is doing** — not the goal.
+
+The naive model is forbidden:
+```
+input → decision → trade        ❌  (dead, one-shot)
+```
+The required model is a **never-terminating awareness loop**:
+```
+Persistent awareness  →  Understanding  →  Synthesis  →  Risk  →  Execution
+        ▲                                                              │
+        │                                                              ▼
+        └──────────  Continuous re-understanding  ◀──  Position Intelligence
+```
+
+**Every tick, for every tracked symbol**, the system re-answers *hundreds* of questions across the
+whole timeframe ladder (M1 → MN) — not just "where is price", but where price sits **inside the
+curve map and curve tree**, how parent/child curves are **communicating**, what **phase / cycle /
+maturity** each curve is in, what the **hidden network** is saying, what the **curve budget** and
+**residual energy** imply, where the **FU candles / chains** are, where the **zones / targets /
+invalidations** are, and what the **narrative** has become. (Full catalogue: **Appendix B —
+Perception Manifest**.)
+
+### Multi-symbol from day one
+The architecture tracks **many pairs simultaneously**, each running its own full perception loop;
+the **Portfolio** layer maintains cross-symbol awareness (exposure, correlation, concurrent
+campaign budget). Start with one pair, but the design must scale to N without rework.
+
+### The trade is never "over" (Position Intelligence)
+Most algos die *after* entry because they stop thinking. HyperOmega does the opposite — once in a
+position it **keeps asking**: is chain vitality improving? is curve progression continuing? is
+compression behaving? has the target moved? are attractors shifting? is ownership transferring? has
+the narrative changed? are FU chains still healthy? is residual energy collapsing? has the campaign
+matured? should we scale / partial / trail / reverse / exit? Much of this is **already built into
+the curve tree, narrative, chain health and curve map** — Position Intelligence *reads* those, it
+does not recompute them (L2).
+
+---
+
 ## 2. The three strata
 
 ```
@@ -137,10 +179,22 @@ memory standing on F60's physics.**
                                   │
                                   ▼
 ┌──────────────────────────────────────────────────────────────────┐
-│  STRATUM D — RISK  (Trinity · Capital · Risk · drawdown guards)   │
+│  STRATUM D — RISK  (Trinity · Capital · Risk · drawdown · exposure)│
 │  STRATUM E — EXECUTION  (CTrade · positions · scaling · reversal) │
-└──────────────────────────────────────────────────────────────────┘
+│  STRATUM F — POSITION INTELLIGENCE  (post-entry re-evaluation:     │
+│              progression · vitality · target/invalidation drift ·  │
+│              ownership transfer · narrative change)  ── feeds back ─┐
+└──────────────────────────────────────────────────────────────────┘ │
+        ▲   continuous re-understanding (loop never terminates)        │
+        └───────────────────────────────────────────────────────────◀─┘
+
+  Wrapping ALL strata, per symbol × N:  PORTFOLIO  (cross-symbol
+  exposure · correlation · concurrent-campaign budget). Each tracked
+  symbol runs the entire A→F loop independently.
 ```
+
+> **It is a loop, not a stack.** Strata A→F run every tick per symbol; F feeds back into C
+> (HyperIntelligence). Perception never stops, in or out of a position (L10).
 
 ---
 
@@ -215,6 +269,18 @@ exists because there are market situations where it contributes useful informati
 - Intelligence is **not** choosing one tool. It is **knowing which tool deserves the loudest voice
   right now.** This is implemented as dynamic context weighting (see §7).
 
+### L10 — Continuous Awareness Law (perception never stops)
+HyperOmega is a persistent awareness loop, not a one-shot pipeline.
+- The system **MUST** re-perceive and re-synthesize **every tick, for every tracked symbol** —
+  before, during, and after any position (see §1.6, §5, Appendix B).
+- **The trade is a side effect of understanding**, never the trigger that ends thinking.
+- **Post-entry management is mandatory.** Once in a position, Position Intelligence must
+  continuously re-evaluate the campaign (progression, vitality, target/invalidation drift,
+  ownership transfer, narrative change) and feed that back into HyperIntelligence.
+- The architecture is **multi-symbol**: each symbol runs its own full loop; the Portfolio layer
+  maintains cross-symbol awareness. The design must scale to N symbols without rework.
+- Perception **MUST NOT** be gated on "are we in a trade?" — it runs unconditionally.
+
 ---
 
 ## 4. Ownership Matrix — who owns what
@@ -274,12 +340,23 @@ DOE  (canonical synthesis)  →  [HyperIntelligence, optional successor]
   ↓
 Senseei (cockpit / interpretation, read-only, non-canonical)
   ↓
-Risk (Trinity · Capital · drawdown guards)
+Risk (Trinity · Capital · drawdown guards · exposure · correlation)
   ↓
-Execution
+Execution (entry · scale · partial · trail · reverse · liquidate · close)
+  ↓
+Position Intelligence (post-entry: progression · vitality · target/invalidation
+       drift · ownership transfer · narrative change — READS curve tree/chain/map)
+  │
+  └──────────────► feeds back into HyperIntelligence  (continuous re-understanding)
 ```
 
-No arrow may be skipped. No box may read around the box below it to raw price.
+This is a **closed loop**, not a line. After Execution, **Position Intelligence** re-evaluates the
+live campaign every tick and feeds back up to HyperIntelligence — the loop never terminates while
+the symbol is tracked. Each tracked symbol runs the whole loop; a **Portfolio** layer wraps all
+symbols for cross-symbol exposure/correlation/budget.
+
+No arrow may be skipped. No box may read around the box below it to raw price. Perception runs
+**whether or not a position is open** (L10).
 
 ---
 
@@ -474,6 +551,15 @@ A deliverable is acceptable **only if all** are true:
 - [ ] **Commander, not dictator** — the synthesis layer weights subsystems by context (no engine
       hard-ignored), TQE can veto a poor opportunity, and Risk/drawdown overrides all perception.
       F60 weight is never zero; no observer is deleted to "simplify" the blend.
+- [ ] **Continuous awareness loop** — perception + synthesis run every tick per symbol, in AND out
+      of positions (not gated on "in a trade?"). The pipeline is a closed loop (A→F→C), not a line.
+- [ ] **Position Intelligence present** — post-entry, the live campaign is continuously
+      re-evaluated (progression / vitality / target & invalidation drift / ownership / narrative)
+      and fed back into HyperIntelligence, driving scale/partial/trail/reverse/exit.
+- [ ] **Multi-symbol** — each tracked symbol runs the full loop; Portfolio wraps cross-symbol
+      exposure/correlation/budget. Design scales to N symbols without rework.
+- [ ] **Perception manifest covered** — every question in Appendix B has an owning module that
+      computes it each cycle; none dropped.
 
 ---
 
@@ -527,6 +613,37 @@ For any change, demonstrate:
 **Shell (preserve):** `Common`, `Logger`, `Memory`, `CampaignDB`, `Session`, `News`, `Capital`,
 `Risk`, `PaperTrade`, `Position/*`, `Execution`, `Meta/*`, `Backtest/*`, `Funded`, `Portfolio`,
 `MetaChain`, `SelfEvolution`, `Attention`, `Explain`.
+
+### Appendix B — Perception Manifest (continuous questions → owning module)
+
+Every tick, per tracked symbol, HyperOmega re-answers all of these. Each maps to the module that
+owns the answer — so **no question is ever dropped and no module is ever forgotten**.
+
+| # | Continuous question | Owning module(s) |
+|---|---|---|
+| 1 | Where am I — across M1·M3·M5·M15·H1·H4·D1·W1·MN (price + curve ownership, parent/child, lineage, recursion depth, campaign ownership)? | F60: `f_se`, Curve Tree (`Ownership·CurveNode·CurveTree`), Fractal Stack |
+| 2 | What are the curves doing — compress / expand / transition / progress / decay / converge / interact? How do parent & child curves communicate? Where am I in the curve map & tree? | F60: `CurveState·Compression·Convexity`, Curve Tree, Curve Map |
+| 3 | What is phase saying — Engine 1A phases 0..14, transitions, maturity, decay, lifecycle? | F60: `Engine1A` |
+| 4 | FU logic — where are FU candles? chains alive? chain vitality? spawn conditions? wave maturity / progression? attack sequence? | F60: FU/chain logic, `ChainHealth`, Spawn engine |
+| 5 | Compression — persistence / release / inheritance / state / pressure / continuity? | F60: `Compression` (persistence) |
+| 6 | Hidden network — nodes, pressure, communications, attractors, curve interactions, pathing, network bias, spatial geometry? | F60: Invisible Network |
+| 7 | FCE — residual, convexity, similarity, energy, wave maturity, **curve budget**, progress, travel, unfinished business? | F60: `Force` (**FCE**) |
+| 8 | Zones — supply, demand, flip zones, distance, confluence, approach geometry, arrival quality, path quality? | Observer: **FRZ** (fed by F60 nodes/lineage) |
+| 9 | Entry cycle — preparation / spawn / attack / expansion / exhaustion / liquidation / management; cycle maturity? | F60: Engine1A + Spawn; Observer: WR/DWR |
+| 10 | Targeting — where should price go? natural path, attractors, node sequence, target quality, expected travel? | Observer: **TE** (fed by FCE trajectory + network path) |
+| 11 | Invalidation — where am I wrong? campaign broken? which curve invalidates? how much room? | Observer: **IE2** (fed by recursive origin / parent curve) |
+| 12 | Rotation — transfer of control? ownership changing? participant shift? transition underway? | Observer: **RIE** (fed by ownership transfer + participant interference) |
+| 13 | MTF consensus — alignment, conflict, dominance, hierarchy? | Observer: **MCE** (fed by fractal stack + curve map + TIE) |
+| 14 | Narrative — continuation / accumulation / expansion / distribution / liquidation / campaign transition / story evolution? | Observer: **NE** (fed by lineage + campaign ownership + chain) |
+| 15 | Trade quality — is it worth doing? asymmetry, probability, conviction? | Observer: **TQE** (veto gate) |
+| 16 | Synthesis — what's happening, where are we, what is price trying to do, how mature, what's unfinished/hidden/likely/dangerous, what's my opportunity vs risk, what should I do / NOT do? | **HyperIntelligence** (commander, dynamic weights) |
+| 17 | Risk — exposure, drawdown, conviction, capital, portfolio, correlation, daily loss, sizing, kill switches? | **Risk** (Omega inheritance; master override) |
+| 18 | Execution — entry, scale, reverse, trail, manage, partial, liquidate, close? | **Execution** |
+| 19 | **After entry** — chain vitality improving? curve progression continuing? compression behaving? target changed? attractors moved? ownership transferring? narrative changed? FU chains healthy? residual collapsing? campaign matured? scale / partial / exit? | **Position Intelligence** → feeds back to HyperIntelligence |
+
+> Questions 1–7 are **F60 substrate** (always on). 8–15 are **observers** (always available,
+> context-weighted). 16 is **synthesis**. 17–18 are **risk + execution**. 19 is the **post-entry
+> feedback loop** that makes this a campaign manager rather than a signal generator.
 
 > **Reminder:** the goal is **Omega-F72 = authentic F60 substrate → enriched V72 observers →
 > DOE/HyperIntelligence → Senseei (cockpit) → Risk → Execution.** Not F60. Not V72. Not a choice

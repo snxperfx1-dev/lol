@@ -72,6 +72,21 @@ can veto** a poor opportunity; **Risk/drawdown overrides everything**. F60 weigh
 observer weights may fall toward zero in irrelevant contexts but the observers are never deleted.
 Intelligence = knowing which tool deserves the loudest voice right now.
 
+## Continuous Awareness Law (it's a campaign manager, not a signal→trade EA)
+HyperOmega is a **living, multi-symbol, never-terminating awareness loop**:
+`Persistent awareness → Understanding → Synthesis → Risk → Execution → Position Intelligence →
+(feeds back to) HyperIntelligence`.
+- Re-perceive & re-synthesize **every tick, for every tracked symbol** — before, during AND after
+  any position. Perception is NEVER gated on "are we in a trade?".
+- **The trade is a side effect of understanding**, not the trigger that ends thinking.
+- **Post-entry management is mandatory** (Position Intelligence): continuously re-check curve
+  progression, chain vitality, compression, target/invalidation drift, ownership transfer,
+  narrative change → scale/partial/trail/reverse/exit. Read these from the curve tree / chain /
+  map / narrative — do not recompute them.
+- **Multi-symbol**: each symbol runs the full loop; a Portfolio layer wraps cross-symbol exposure,
+  correlation and campaign budget. Start with one pair but design for N.
+- Every continuous question maps to an owning module (see spec Appendix B) — never drop a question.
+
 ## Before claiming "done"
 Run the spec's §11 verification checklist: prove no deletion, no bypass, no recompute, enrichment
 applied, Senseei independent (system still decides without it), DOE canonical into Execution.
