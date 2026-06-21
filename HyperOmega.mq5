@@ -112,18 +112,23 @@ input bool   InpCsvLogs          = false;   // Write CSV logs
 #include "Include/Exec/Execution.mqh"
 #include "Include/Exec/PositionIntelligence.mqh"
 //--- Portfolio (Part 15)
-//#include "Include/Portfolio.mqh"
+#include "Include/Portfolio.mqh"
 
 //==================================================================
-//= EA lifecycle  (wiring completed in Part 15)
+//= EA lifecycle  (full continuous loop)
 //==================================================================
-datetime g_lastBeat = 0;
+OmegaCapital g_capital;
+Portfolio    g_port;
+datetime     g_lastBeat = 0;
 
 int OnInit()
   {
    OmegaLogger::Init(LOG_INFO, InpCsvLogs);
-   OmegaLogger::LogInfo("EA", StringFormat("HYPEROMEGA v%s · %s · modular build (parts landing)", OMEGA_VERSION, _Symbol));
+   OmegaLogger::LogInfo("EA", StringFormat("HYPEROMEGA v%s · %s · multi-symbol campaign manager", OMEGA_VERSION, _Symbol));
+   g_capital.Init(InpDailyLimitPct, InpWeeklyLimitPct, InpHardLimitPct);
+   g_port.Init();
    EventSetTimer(MathMax(5, InpHeartbeatSec));
+   OmegaLogger::LogInfo("EA", "Initialized · F60 substrate + full V72 observers + HyperIntelligence opportunity engine.");
    return INIT_SUCCEEDED;
   }
 
@@ -137,7 +142,16 @@ void OnDeinit(const int reason)
 
 void OnTick()
   {
-   // Full continuous loop wired in Part 15 (Portfolio.Update).
+   g_capital.Update();
+   g_port.Update(g_capital);
+   if(InpShowComment)
+     {
+      string cm=StringFormat("HYPEROMEGA · %d sym · campaigns=%d/%d\nCapital: %s · thr=%.2f · ddD=%.2f%% ddW=%.2f%% openRisk=%.2f%%\n%s",
+                  g_port.Count(), g_port.CountActiveCampaigns(), InpMaxConcurrent,
+                  CapName(g_capital.State()), g_capital.Throttle(), g_capital.DDd(), g_capital.DDw(), OmegaRisk::OpenRiskPct(InpMagic),
+                  g_port.Diag());
+      Comment(cm);
+     }
   }
 
 void OnTimer()
@@ -146,7 +160,8 @@ void OnTimer()
    if(g_lastBeat==0 || (now-g_lastBeat)>=InpHeartbeatSec)
      {
       g_lastBeat = now;
-      OmegaLogger::LogInfo("HEARTBEAT", "alive · awaiting full wiring (Part 15)");
+      OmegaLogger::LogInfo("HEARTBEAT", StringFormat("cap=%s thr=%.2f campaigns=%d openRisk=%.2f%%",
+         CapName(g_capital.State()), g_capital.Throttle(), g_port.CountActiveCampaigns(), OmegaRisk::OpenRiskPct(InpMagic)));
      }
   }
 //+------------------------------------------------------------------+
