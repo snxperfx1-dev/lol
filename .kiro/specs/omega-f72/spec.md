@@ -202,6 +202,19 @@ The following deliverables are **forbidden** and are to be treated as failures:
 - any single-file rewrite that omits ERF/FRZ/RIE/MCE/NE/TQE/TE/IE2/WR/DWR/DOE or the
   F60 recursive tree / FCE / Invisible Network / chain vitality / compression persistence.
 
+### L9 — Tool Utilization Law (arsenal, not monarchy)
+The algorithm is **not a collection of competing engines — it is an arsenal.** Each subsystem
+exists because there are market situations where it contributes useful information.
+- The valid question is **"WHEN should this tool matter?"** — never **"Should this tool exist?"**
+- **No subsystem may be removed because another is more sophisticated.** (Night vision being good
+  does not mean you throw away thermal; the M4 being primary does not mean you delete breaching
+  charges or machine guns.)
+- F60 engines are the **Tier-1 operators** and run **always**. But Tier-1 operators still call on
+  satellites, AWACS, drones, artillery, and logistics — i.e. ERF, FRZ, RIE, MCE, TQE, TE, IE2 and
+  Risk — whenever conditions make them relevant.
+- Intelligence is **not** choosing one tool. It is **knowing which tool deserves the loudest voice
+  right now.** This is implemented as dynamic context weighting (see §7).
+
 ---
 
 ## 4. Ownership Matrix — who owns what
@@ -347,6 +360,55 @@ Because intelligence is emergent (L6), the final synthesis layer is replaceable.
   recursive interaction of all observers. Any synthesis layer (Senseei, DOE, HyperIntelligence)
   may be swapped; the substrate and observers remain.
 
+### 7.1 HyperIntelligence is a COMMANDER, not a DICTATOR
+
+HyperIntelligence does **not** pick one engine and ignore the rest. It **dynamically weights every
+subsystem by context**, raising the voice of whichever tool matters right now and applying hard
+vetoes/overrides where survival demands it.
+
+**Forbidden** (dictator):
+```
+ignore ERF; ignore FRZ; ignore RIE; ignore TQE; trust Senseei only;
+```
+
+**Required** (commander — context-driven weighting + vetoes):
+```
+// F60 Tier-1 operators are ALWAYS on; their authority rises with their own conviction
+if (compressionPersistence > HIGH)   trustF60 += 20;
+
+// raise the voice of whichever observer the situation activates
+if (residualEnergy      > HIGH)      increaseWeight(ERF);
+if (rotationProbability > HIGH)      increaseWeight(RIE);
+if (supplyDistance      < THRESHOLD) increaseWeight(FRZ);
+if (htfOwnership conflicts w/ F60)   increaseWeight(MCE);
+
+// hard gates — these can stop a beautiful setup cold
+if (TQE < MINIMUM)                   vetoTrade();          // ingredients present, opportunity poor
+if (drawdown > MAX)                  overrideEverything(); // risk outranks all perception
+```
+
+### 7.2 Dynamic context weighting (the combination model)
+
+```
+                       HyperIntelligence
+                              │
+   ┌──────┬──────┬──────┬─────┴────┬──────┬──────┬──────┐
+ F60_w  ERF_w  RIE_w  FRZ_w     MCE_w  TQE_w  TE_w  IE2_w
+   └──────┴──────┴──────┴────┬─────┴──────┴──────┴──────┘
+                             │  (weights vary with context)
+                        Risk_w (gate)
+                             │
+                        Execution
+```
+
+- Weights **change with context**: sometimes F60 contributes ~80%; sometimes residual energy
+  (ERF) dominates; sometimes supply/demand geometry (FRZ) dominates.
+- **TQE is a veto gate** — it can rule a setup "not worth it" even when every ingredient is present.
+- **Risk is the master override** — *"I don't care how beautiful this setup is, we're done for
+  today"* outranks all perception (see §7.5).
+- F60 weight is never zero (Tier-1 always running); observer weights may fall toward zero when the
+  context does not activate them, but the observers are **never deleted** (L0, L5, L9).
+
 ---
 
 ## 7.5 Risk management is Omega's inheritance (NEVER delete)
@@ -409,6 +471,9 @@ A deliverable is acceptable **only if all** are true:
       persistence, chain vitality, participant interference, curve lineage, wave registry are all
       still computed and consumed (they are intelligence features, not display features).
 - [ ] **Risk + Execution unchanged in contract** — they consume the canonical decision only.
+- [ ] **Commander, not dictator** — the synthesis layer weights subsystems by context (no engine
+      hard-ignored), TQE can veto a poor opportunity, and Risk/drawdown overrides all perception.
+      F60 weight is never zero; no observer is deleted to "simplify" the blend.
 
 ---
 

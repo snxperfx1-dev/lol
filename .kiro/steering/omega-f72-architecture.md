@@ -58,6 +58,20 @@ If a module has a downstream consumer, it MUST remain. Delete a module ONLY if i
 AND duplicates a lower-layer authoritative calc AND keeping it violates an authority law. Otherwise
 preserve and enrich. Observer/substrate module count should stay the same or grow — never shrink.
 
+## Tool Utilization Law (arsenal, not monarchy)
+The algo is an **arsenal**, not competing engines. Ask **"WHEN should this tool matter?"**, never
+"should it exist?". F60 engines are **Tier-1 operators that always run** — but Tier-1 still calls
+on satellites/AWACS/drones/artillery (ERF, FRZ, RIE, MCE, TQE, TE, IE2, Risk) when context makes
+them relevant. Never delete a tool because another is more sophisticated.
+
+## Commander, not dictator (dynamic weighting)
+The synthesis layer (HyperIntelligence/DOE) **weights subsystems by context** — it does NOT pick
+one and ignore the rest. Required pattern: raise ERF weight when residual energy is high, RIE when
+rotation is high, FRZ when supply/demand is near, MCE when HTF ownership conflicts with F60; **TQE
+can veto** a poor opportunity; **Risk/drawdown overrides everything**. F60 weight is never zero;
+observer weights may fall toward zero in irrelevant contexts but the observers are never deleted.
+Intelligence = knowing which tool deserves the loudest voice right now.
+
 ## Before claiming "done"
 Run the spec's §11 verification checklist: prove no deletion, no bypass, no recompute, enrichment
 applied, Senseei independent (system still decides without it), DOE canonical into Execution.
