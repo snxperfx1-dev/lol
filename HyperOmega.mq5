@@ -106,7 +106,7 @@ input bool   InpCsvLogs          = false;   // Write CSV logs
 //--- Observers (Parts 9-11)
 #include "Include/Observers/Observers.mqh"
 //--- HyperIntelligence (Part 12)
-//#include "Include/Hyper/HyperIntelligence.mqh"
+#include "Include/Hyper/HyperIntelligence.mqh"
 //--- Risk + Execution + Position Intelligence (Parts 13-14)
 //#include "Include/Risk/Risk.mqh"
 //#include "Include/Exec/Execution.mqh"
