@@ -98,7 +98,7 @@ input bool   InpCsvLogs          = false;   // Write CSV logs
 #include "Include/F60/CurveTree.mqh"          // Part 4
 #include "Include/F60/Network.mqh"            // Part 5
 #include "Include/F60/Participants.mqh"       // Part 6
-//#include "Include/F60/FractalTime.mqh"        // Part 7
+#include "Include/F60/FractalTime.mqh"        // Part 7
 //#include "Include/F60/Cognition.mqh"          // Part 8
 //#include "Include/F60/Substrate.mqh"          // Part 8 (aggregator -> F60State)
 //--- Observers (Parts 9-11)
