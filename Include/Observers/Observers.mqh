@@ -15,7 +15,7 @@
 #include "ObserverBus.mqh"
 #include "ObsA.mqh"
 #include "ObsB.mqh"      // Part 10
-// #include "ObsC.mqh"   // Part 11
+#include "ObsC.mqh"      // Part 11
 
 class Observers
   {
@@ -25,7 +25,7 @@ public:
       o.Reset();
       ObserversA::Update(s, o);    // ERF · FRZ · RIE
       ObserversB::Update(s, o);    // MCE · NE · TQE
-      // ObserversC::Update(s, o); // TE · IE2 · WR    (Part 11)
+      ObserversC::Update(s, o);    // TE · IE2 · WR/DWR
      }
   };
 
