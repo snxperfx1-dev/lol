@@ -1923,7 +1923,8 @@ public:
       m_cog.Compute(s);
       //--- FCE composite (after cognition supplies residual/maturity)
       s.fce_residual=s.re_residualScore; s.fce_convexity=s.convexityScore; s.fce_maturity=s.convexityMaturity;
-      double otgt=(owner>=0)?s.tfTgt[owner]:s.tfTgt[2], oinv=(owner>=0)?s.tfInv[owner]:s.tfInv[2];
+      int ow=(s.ownerTf>=0)?s.ownerTf:TF_CANON;
+      double otgt=s.tfTgt[ow], oinv=s.tfInv[ow];
       if(!IsNa(otgt)&&!IsNa(oinv)&&MathAbs(otgt-oinv)>1e-10){ double tr=OmegaMath::Clamp(MathAbs(close-oinv)/MathAbs(otgt-oinv)*100.0,0.0,100.0); s.fce_travel=tr; s.fce_budget=MathMax(0.0,100.0-tr); }
       else { s.fce_travel=50.0; s.fce_budget=50.0; }
       s.fce_progress=s.fce_maturity;
