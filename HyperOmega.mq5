@@ -97,7 +97,7 @@ input bool   InpCsvLogs          = false;   // Write CSV logs
 #include "Include/F60/Physics.mqh"
 #include "Include/F60/Structure.mqh"
 #include "Include/F60/CurveFramework.mqh"     // Part 3
-#include "Include/F60/CurveTree.mqh"          // Part 4
+#include "Include/F60/CurveTreeF60.mqh"       // Part 4 (F60-native, Part 16 refactor)
 #include "Include/F60/Network.mqh"            // Part 5
 #include "Include/F60/Participants.mqh"       // Part 6
 #include "Include/F60/FractalTime.mqh"        // Part 7

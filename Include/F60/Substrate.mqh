@@ -18,7 +18,7 @@
 #include "../F60State.mqh"
 #include "Structure.mqh"
 #include "CurveFramework.mqh"
-#include "CurveTree.mqh"
+#include "CurveTreeF60.mqh"
 #include "Network.mqh"
 #include "Participants.mqh"
 #include "FractalTime.mqh"
@@ -32,7 +32,7 @@ private:
    ENUM_TIMEFRAMES  m_seTf[9]; datetime m_seLast[9];
    NetworkEngine    m_net;
    ENUM_TIMEFRAMES  m_fuTf[7]; datetime m_fuLast[7];
-   OmegaCurveTree   m_tree;
+   F60CurveTree     m_tree;
    OmegaParticipants m_part;
    CurveForce       m_force;
    FractalStack     m_fractal;
@@ -137,20 +137,15 @@ public:
       if(InpUseStrictStruct){ if(isHH&&isHL) m_structBias=1; if(isLH&&isLL) m_structBias=-1; }
       else { if(m_se[2].o_bos==1) m_structBias=1; if(m_se[2].o_bos==-1) m_structBias=-1; }
       s.structBias=m_structBias;
-      //--- recursive curve tree
-      m_tree.Update(m_se[2],close,high,low);
-      s.treeOwnerDir=m_tree.ownerDir; s.treeOwnerEnergy=m_tree.ownerEnergy; s.treeOwnerStability=m_tree.ownerStability;
-      s.treeDepth=m_tree.treeDepth; s.treeRecursionBudget=m_tree.recursionBudget; s.chainVitality=m_tree.ChainVitality();
-      s.treeTransferDir=(m_tree.transfersCount>m_prevTransfers)?m_tree.ownerDir:0; m_prevTransfers=m_tree.transfersCount;
+      //--- recursive curve tree (F60-native: f_se recursion + network + MTF map)
       s.recursiveDepth=m_se[2].o_recBrk;
-      //--- ladder-rung owner (TF index)
-      int owner=-1; double bestMf=-1;
-      for(int i=8;i>=0;i--) if(s.tfDir[i]!=0&&s.tfWp[i]>=15.0&&s.tfWp[i]<=92.0&&s.tfMf[i]>bestMf){ bestMf=s.tfMf[i]; owner=i; }
-      if(owner<0) for(int i=8;i>=0;i--) if(s.tfDir[i]!=0){ owner=i; break; }
-      s.ownerTf=owner; s.ownerDir=owner>=0?s.tfDir[owner]:0;
-      //--- participants (owner leg from tree)
-      double ownOrigin=(m_tree.ownerIndex>=0)?m_tree.tree[m_tree.ownerIndex].origin:0.0;
-      double ownExtreme=(m_tree.ownerIndex>=0)?m_tree.tree[m_tree.ownerIndex].extreme:0.0;
+      m_tree.Update(s,m_se[2].o_recDom,close);
+      s.ownerTf=m_tree.ownerTf; s.ownerDir=m_tree.ownerDir;
+      s.treeOwnerDir=m_tree.ownerDir; s.treeOwnerEnergy=m_tree.ownerEnergy; s.treeOwnerStability=m_tree.ownerStability;
+      s.treeDepth=m_tree.treeDepth; s.treeRecursionBudget=m_tree.recursionBudget; s.chainVitality=m_tree.chainVitality;
+      s.treeTransferDir=m_tree.treeTransferDir;
+      //--- participants (owner leg from the F60 curve tree)
+      double ownOrigin=m_tree.ownerOrigin, ownExtreme=m_tree.ownerExtreme;
       m_part.Update(m_tree.ownerDir,ownOrigin,ownExtreme,atr,high,low,m_m5o,close);
       s.participantStability=m_part.participantStability; s.flipQuality=m_part.flipQuality;
       s.participantInterference=m_part.Interference();
